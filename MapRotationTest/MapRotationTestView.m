@@ -8,6 +8,11 @@
 
 #import "MapRotationTestView.h"
 
+
+#define STEP_SIZE			10.0	// Each up/down arrow keypress moves you by 10 points. Same for sidestep with shift key.
+#define NUM_ROTATION_STEPS	36.0	// 36 steps in 360 degrees means each left/right arrow press turns you by 10 degrees.
+
+
 @implementation MapRotationTestView
 
 -(id)	initWithCoder:(NSCoder *)coder
@@ -38,20 +43,21 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     NSPoint		topLeft = {100, 100}, topRight = { 300, 100 }, bottomRight = { 300, 200 }, bottomLeft = { 100, 200 };
+	NSPoint		viewCenter = { self.bounds.size.width / 2, self.bounds.size.height / 2 };
 	
 	topLeft = [self rotatePoint: topLeft byAngle: currAngle aroundPoint: currPos];
 	topRight = [self rotatePoint: topRight byAngle: currAngle aroundPoint: currPos];
 	bottomRight = [self rotatePoint: bottomRight byAngle: currAngle aroundPoint: currPos];
 	bottomLeft = [self rotatePoint: bottomLeft byAngle: currAngle aroundPoint: currPos];
 	
-	topLeft.x -= currPos.x -200;
-	topLeft.y -= currPos.y -200;
-	topRight.x -= currPos.x -200;
-	topRight.y -= currPos.y -200;
-	bottomRight.x -= currPos.x -200;
-	bottomRight.y -= currPos.y -200;
-	bottomLeft.x -= currPos.x -200;
-	bottomLeft.y -= currPos.y -200;
+	topLeft.x -= currPos.x -viewCenter.x;
+	topLeft.y -= currPos.y -viewCenter.y;
+	topRight.x -= currPos.x -viewCenter.x;
+	topRight.y -= currPos.y -viewCenter.y;
+	bottomRight.x -= currPos.x -viewCenter.x;
+	bottomRight.y -= currPos.y -viewCenter.y;
+	bottomLeft.x -= currPos.x -viewCenter.x;
+	bottomLeft.y -= currPos.y -viewCenter.y;
 	
 	// Draw!
 	[NSColor.grayColor set];
@@ -64,7 +70,7 @@
 	[thePath fill];
 	
 	[NSColor.redColor set];
-	NSPoint	indicatorPos = NSMakePoint(200, 200);
+	NSPoint	indicatorPos = viewCenter;
 //	NSPoint triA = [self rotatePoint: NSMakePoint(indicatorPos.x -10, indicatorPos.y +10) byAngle: (2 * M_PI) -currAngle aroundPoint: indicatorPos];
 //	NSPoint triB = [self rotatePoint: NSMakePoint(indicatorPos.x +10, indicatorPos.y +10) byAngle: (2 * M_PI) -currAngle aroundPoint: indicatorPos];
 //	NSPoint triC = [self rotatePoint: NSMakePoint(indicatorPos.x, indicatorPos.y -10) byAngle: (2 * M_PI) -currAngle aroundPoint: indicatorPos];
@@ -111,11 +117,11 @@
 {
 	if( [NSApplication.sharedApplication currentEvent].modifierFlags & NSShiftKeyMask )
 	{
-		currPos = [self translatePoint: currPos byAngle: currAngle +(M_PI / 2.0) distance: -10.0];
+		currPos = [self translatePoint: currPos byAngle: currAngle +(M_PI / 2.0) distance: -STEP_SIZE];
 	}
 	else
 	{
-		currAngle += M_PI / 10;	// 20 steps in 2 * M_PI
+		currAngle += (M_PI * 2) / NUM_ROTATION_STEPS;
 	}
 	[self setNeedsDisplay: YES];
 }
@@ -125,11 +131,11 @@
 {
 	if( [NSApplication.sharedApplication currentEvent].modifierFlags & NSShiftKeyMask )
 	{
-		currPos = [self translatePoint: currPos byAngle: currAngle +(M_PI / 2.0) distance: 10.0];
+		currPos = [self translatePoint: currPos byAngle: currAngle +(M_PI / 2.0) distance: STEP_SIZE];
 	}
 	else
 	{
-		currAngle -= M_PI / 10;	// 20 steps in 2 * M_PI
+		currAngle -= (M_PI * 2) / NUM_ROTATION_STEPS;
 	}
 	[self setNeedsDisplay: YES];
 }
@@ -137,14 +143,14 @@
 
 -(void)	moveUp: (id)sender
 {
-	currPos = [self translatePoint: currPos byAngle: currAngle distance: -10.0];
+	currPos = [self translatePoint: currPos byAngle: currAngle distance: -STEP_SIZE];
 	[self setNeedsDisplay: YES];
 }
 
 
 -(void)	moveDown: (id)sender
 {
-	currPos = [self translatePoint: currPos byAngle: currAngle distance: 10.0];
+	currPos = [self translatePoint: currPos byAngle: currAngle distance: STEP_SIZE];
 	[self setNeedsDisplay: YES];
 }
 
