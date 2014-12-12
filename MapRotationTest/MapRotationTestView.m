@@ -22,6 +22,7 @@
 	{
 		currPos = (NSPoint){ 200, 200 };
 		currAngle = 0;
+		mapModeDisplay = NO;
 	}
 	return self;
 }
@@ -45,10 +46,13 @@
     NSPoint		topLeft = {100, 100}, topRight = { 300, 100 }, bottomRight = { 300, 200 }, bottomLeft = { 100, 200 };
 	NSPoint		viewCenter = { self.bounds.size.width / 2, self.bounds.size.height / 2 };
 	
-	topLeft = [self rotatePoint: topLeft byAngle: currAngle aroundPoint: currPos];
-	topRight = [self rotatePoint: topRight byAngle: currAngle aroundPoint: currPos];
-	bottomRight = [self rotatePoint: bottomRight byAngle: currAngle aroundPoint: currPos];
-	bottomLeft = [self rotatePoint: bottomLeft byAngle: currAngle aroundPoint: currPos];
+	if( !mapModeDisplay )
+	{
+		topLeft = [self rotatePoint: topLeft byAngle: currAngle aroundPoint: currPos];
+		topRight = [self rotatePoint: topRight byAngle: currAngle aroundPoint: currPos];
+		bottomRight = [self rotatePoint: bottomRight byAngle: currAngle aroundPoint: currPos];
+		bottomLeft = [self rotatePoint: bottomLeft byAngle: currAngle aroundPoint: currPos];
+	}
 	
 	topLeft.x -= currPos.x -viewCenter.x;
 	topLeft.y -= currPos.y -viewCenter.y;
@@ -71,12 +75,21 @@
 	
 	[NSColor.redColor set];
 	NSPoint	indicatorPos = viewCenter;
-//	NSPoint triA = [self rotatePoint: NSMakePoint(indicatorPos.x -10, indicatorPos.y +10) byAngle: (2 * M_PI) -currAngle aroundPoint: indicatorPos];
-//	NSPoint triB = [self rotatePoint: NSMakePoint(indicatorPos.x +10, indicatorPos.y +10) byAngle: (2 * M_PI) -currAngle aroundPoint: indicatorPos];
-//	NSPoint triC = [self rotatePoint: NSMakePoint(indicatorPos.x, indicatorPos.y -10) byAngle: (2 * M_PI) -currAngle aroundPoint: indicatorPos];
-	NSPoint triA = NSMakePoint(indicatorPos.x -10, indicatorPos.y +10);
-	NSPoint triB = NSMakePoint(indicatorPos.x +10, indicatorPos.y +10);
-	NSPoint triC = NSMakePoint(indicatorPos.x, indicatorPos.y -10);
+	NSPoint triA;
+	NSPoint triB;
+	NSPoint triC;
+	if( mapModeDisplay )
+	{
+		triA = [self rotatePoint: NSMakePoint(indicatorPos.x -10, indicatorPos.y +10) byAngle: (2 * M_PI) -currAngle aroundPoint: indicatorPos];
+		triB = [self rotatePoint: NSMakePoint(indicatorPos.x +10, indicatorPos.y +10) byAngle: (2 * M_PI) -currAngle aroundPoint: indicatorPos];
+		triC = [self rotatePoint: NSMakePoint(indicatorPos.x, indicatorPos.y -10) byAngle: (2 * M_PI) -currAngle aroundPoint: indicatorPos];
+	}
+	else
+	{
+		triA = NSMakePoint(indicatorPos.x -10, indicatorPos.y +10);
+		triB = NSMakePoint(indicatorPos.x +10, indicatorPos.y +10);
+		triC = NSMakePoint(indicatorPos.x, indicatorPos.y -10);
+	}
 	NSBezierPath	*	playerPath = [NSBezierPath bezierPath];
 	[playerPath moveToPoint: triA];
 	[playerPath lineToPoint: triB];
@@ -113,30 +126,89 @@
 }
 
 
+-(void)	keyDown:(NSEvent *)theEvent
+{
+	NSString	*	pressedKeys = theEvent.charactersIgnoringModifiers;
+	unichar			pressedKey = (pressedKeys.length > 0) ? [pressedKeys characterAtIndex: 0] : 0;
+	switch( pressedKey )
+	{
+		case 'w':
+			[self moveUp: self];
+			break;
+			
+		case 'a':
+			[self moveLeft: self];
+			break;
+			
+		case 's':
+			[self moveDown: self];
+			break;
+			
+		case 'd':
+			[self moveRight: self];
+			break;
+
+		case 'q':
+			[self strafeLeft: self];
+			break;
+			
+		case 'e':
+			[self strafeRight: self];
+			break;
+		
+		case NSLeftArrowFunctionKey:
+			if( [NSApplication.sharedApplication currentEvent].modifierFlags & NSShiftKeyMask )
+			{
+				[self strafeLeft: self];
+			}
+			else
+			{
+				[self moveLeft: self];
+			}
+			break;
+			
+		case NSRightArrowFunctionKey:
+			if( [NSApplication.sharedApplication currentEvent].modifierFlags & NSShiftKeyMask )
+			{
+				[self strafeRight: self];
+			}
+			else
+			{
+				[self moveRight: self];
+			}
+			break;
+			
+		default:
+			[self interpretKeyEvents: @[theEvent]];
+			break;
+	}
+}
+
+
+-(void)	strafeLeft: (id)sender
+{
+	currPos = [self translatePoint: currPos byAngle: currAngle +(M_PI / 2.0) distance: -STEP_SIZE];
+	[self setNeedsDisplay: YES];
+}
+
+
+-(void)	strafeRight: (id)sender
+{
+	currPos = [self translatePoint: currPos byAngle: currAngle +(M_PI / 2.0) distance: STEP_SIZE];
+	[self setNeedsDisplay: YES];
+}
+
+
 -(void)	moveLeft: (id)sender
 {
-	if( [NSApplication.sharedApplication currentEvent].modifierFlags & NSShiftKeyMask )
-	{
-		currPos = [self translatePoint: currPos byAngle: currAngle +(M_PI / 2.0) distance: -STEP_SIZE];
-	}
-	else
-	{
-		currAngle += (M_PI * 2) / NUM_ROTATION_STEPS;
-	}
+	currAngle += (M_PI * 2) / NUM_ROTATION_STEPS;
 	[self setNeedsDisplay: YES];
 }
 
 
 -(void)	moveRight: (id)sender
 {
-	if( [NSApplication.sharedApplication currentEvent].modifierFlags & NSShiftKeyMask )
-	{
-		currPos = [self translatePoint: currPos byAngle: currAngle +(M_PI / 2.0) distance: STEP_SIZE];
-	}
-	else
-	{
-		currAngle -= (M_PI * 2) / NUM_ROTATION_STEPS;
-	}
+	currAngle -= (M_PI * 2) / NUM_ROTATION_STEPS;
 	[self setNeedsDisplay: YES];
 }
 

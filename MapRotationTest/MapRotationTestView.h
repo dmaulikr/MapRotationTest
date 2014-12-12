@@ -10,8 +10,9 @@
 
 @interface MapRotationTestView : NSView
 {
-	NSPoint		currPos;
-	CGFloat		currAngle;
+	NSPoint		currPos;		// The position of the character in the world.
+	CGFloat		currAngle;		// The direction the character is facing in the world.
+	BOOL		mapModeDisplay;	// YES if we want to show a map where North is up, NO if we want the world to rotate around the character, who's always facing up.
 }
 
 @end
