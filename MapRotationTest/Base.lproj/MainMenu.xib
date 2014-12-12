@@ -667,7 +667,7 @@
             </items>
         </menu>
         <window title="MapRotationTest" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="440" height="440"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1366" height="768"/>
@@ -676,18 +676,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="Wpv-JN-y9m" customClass="MapRotationTestView">
-                        <rect key="frame" x="20" y="20" width="400" height="400"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="400" id="NcA-nE-g7u"/>
-                            <constraint firstAttribute="height" constant="400" id="mXy-gT-F1Y"/>
-                        </constraints>
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="440"/>
                     </customView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Wpv-JN-y9m" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="2Yu-dg-8tM"/>
-                    <constraint firstItem="Wpv-JN-y9m" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="4wp-r5-1Af"/>
-                    <constraint firstAttribute="trailing" secondItem="Wpv-JN-y9m" secondAttribute="trailing" constant="20" id="NOt-Kb-Kfl"/>
-                    <constraint firstAttribute="bottom" secondItem="Wpv-JN-y9m" secondAttribute="bottom" constant="20" id="yyK-im-Qbw"/>
+                    <constraint firstItem="Wpv-JN-y9m" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="2Yu-dg-8tM"/>
+                    <constraint firstItem="Wpv-JN-y9m" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="4wp-r5-1Af"/>
+                    <constraint firstAttribute="trailing" secondItem="Wpv-JN-y9m" secondAttribute="trailing" id="NOt-Kb-Kfl"/>
+                    <constraint firstAttribute="bottom" secondItem="Wpv-JN-y9m" secondAttribute="bottom" id="yyK-im-Qbw"/>
                 </constraints>
             </view>
             <point key="canvasLocation" x="268" y="396"/>
