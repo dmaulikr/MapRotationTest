@@ -1,0 +1,419 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5533C8191A3A5F3700ADF4C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5533C8181A3A5F3700ADF4C3 /* AppDelegate.m */; };
+		5533C81B1A3A5F3700ADF4C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5533C81A1A3A5F3700ADF4C3 /* main.m */; };
+		5533C81D1A3A5F3800ADF4C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5533C81C1A3A5F3800ADF4C3 /* Images.xcassets */; };
+		5533C8201A3A5F3800ADF4C3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5533C81E1A3A5F3800ADF4C3 /* MainMenu.xib */; };
+		5533C82C1A3A5F3800ADF4C3 /* MapRotationTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5533C82B1A3A5F3800ADF4C3 /* MapRotationTestTests.m */; };
+		5533C8371A3A5F6000ADF4C3 /* MapRotationTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5533C8361A3A5F6000ADF4C3 /* MapRotationTestView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5533C8261A3A5F3800ADF4C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5533C80A1A3A5F3700ADF4C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5533C8111A3A5F3700ADF4C3;
+			remoteInfo = MapRotationTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5533C8121A3A5F3700ADF4C3 /* MapRotationTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapRotationTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5533C8161A3A5F3700ADF4C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5533C8171A3A5F3700ADF4C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5533C8181A3A5F3700ADF4C3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5533C81A1A3A5F3700ADF4C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5533C81C1A3A5F3800ADF4C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5533C81F1A3A5F3800ADF4C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		5533C8251A3A5F3800ADF4C3 /* MapRotationTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapRotationTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5533C82A1A3A5F3800ADF4C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5533C82B1A3A5F3800ADF4C3 /* MapRotationTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapRotationTestTests.m; sourceTree = "<group>"; };
+		5533C8351A3A5F6000ADF4C3 /* MapRotationTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapRotationTestView.h; sourceTree = "<group>"; };
+		5533C8361A3A5F6000ADF4C3 /* MapRotationTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapRotationTestView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5533C80F1A3A5F3700ADF4C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5533C8221A3A5F3800ADF4C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5533C8091A3A5F3700ADF4C3 = {
+			isa = PBXGroup;
+			children = (
+				5533C8141A3A5F3700ADF4C3 /* MapRotationTest */,
+				5533C8281A3A5F3800ADF4C3 /* MapRotationTestTests */,
+				5533C8131A3A5F3700ADF4C3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5533C8131A3A5F3700ADF4C3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5533C8121A3A5F3700ADF4C3 /* MapRotationTest.app */,
+				5533C8251A3A5F3800ADF4C3 /* MapRotationTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5533C8141A3A5F3700ADF4C3 /* MapRotationTest */ = {
+			isa = PBXGroup;
+			children = (
+				5533C8171A3A5F3700ADF4C3 /* AppDelegate.h */,
+				5533C8181A3A5F3700ADF4C3 /* AppDelegate.m */,
+				5533C8351A3A5F6000ADF4C3 /* MapRotationTestView.h */,
+				5533C8361A3A5F6000ADF4C3 /* MapRotationTestView.m */,
+				5533C81C1A3A5F3800ADF4C3 /* Images.xcassets */,
+				5533C81E1A3A5F3800ADF4C3 /* MainMenu.xib */,
+				5533C8151A3A5F3700ADF4C3 /* Supporting Files */,
+			);
+			path = MapRotationTest;
+			sourceTree = "<group>";
+		};
+		5533C8151A3A5F3700ADF4C3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5533C8161A3A5F3700ADF4C3 /* Info.plist */,
+				5533C81A1A3A5F3700ADF4C3 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5533C8281A3A5F3800ADF4C3 /* MapRotationTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				5533C82B1A3A5F3800ADF4C3 /* MapRotationTestTests.m */,
+				5533C8291A3A5F3800ADF4C3 /* Supporting Files */,
+			);
+			path = MapRotationTestTests;
+			sourceTree = "<group>";
+		};
+		5533C8291A3A5F3800ADF4C3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5533C82A1A3A5F3800ADF4C3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5533C8111A3A5F3700ADF4C3 /* MapRotationTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5533C82F1A3A5F3800ADF4C3 /* Build configuration list for PBXNativeTarget "MapRotationTest" */;
+			buildPhases = (
+				5533C80E1A3A5F3700ADF4C3 /* Sources */,
+				5533C80F1A3A5F3700ADF4C3 /* Frameworks */,
+				5533C8101A3A5F3700ADF4C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MapRotationTest;
+			productName = MapRotationTest;
+			productReference = 5533C8121A3A5F3700ADF4C3 /* MapRotationTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5533C8241A3A5F3800ADF4C3 /* MapRotationTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5533C8321A3A5F3800ADF4C3 /* Build configuration list for PBXNativeTarget "MapRotationTestTests" */;
+			buildPhases = (
+				5533C8211A3A5F3800ADF4C3 /* Sources */,
+				5533C8221A3A5F3800ADF4C3 /* Frameworks */,
+				5533C8231A3A5F3800ADF4C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5533C8271A3A5F3800ADF4C3 /* PBXTargetDependency */,
+			);
+			name = MapRotationTestTests;
+			productName = MapRotationTestTests;
+			productReference = 5533C8251A3A5F3800ADF4C3 /* MapRotationTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5533C80A1A3A5F3700ADF4C3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Uli Kusterer";
+				TargetAttributes = {
+					5533C8111A3A5F3700ADF4C3 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					5533C8241A3A5F3800ADF4C3 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 5533C8111A3A5F3700ADF4C3;
+					};
+				};
+			};
+			buildConfigurationList = 5533C80D1A3A5F3700ADF4C3 /* Build configuration list for PBXProject "MapRotationTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5533C8091A3A5F3700ADF4C3;
+			productRefGroup = 5533C8131A3A5F3700ADF4C3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5533C8111A3A5F3700ADF4C3 /* MapRotationTest */,
+				5533C8241A3A5F3800ADF4C3 /* MapRotationTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5533C8101A3A5F3700ADF4C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5533C81D1A3A5F3800ADF4C3 /* Images.xcassets in Resources */,
+				5533C8201A3A5F3800ADF4C3 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5533C8231A3A5F3800ADF4C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5533C80E1A3A5F3700ADF4C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5533C8371A3A5F6000ADF4C3 /* MapRotationTestView.m in Sources */,
+				5533C81B1A3A5F3700ADF4C3 /* main.m in Sources */,
+				5533C8191A3A5F3700ADF4C3 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5533C8211A3A5F3800ADF4C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5533C82C1A3A5F3800ADF4C3 /* MapRotationTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5533C8271A3A5F3800ADF4C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5533C8111A3A5F3700ADF4C3 /* MapRotationTest */;
+			targetProxy = 5533C8261A3A5F3800ADF4C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5533C81E1A3A5F3800ADF4C3 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5533C81F1A3A5F3800ADF4C3 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5533C82D1A3A5F3800ADF4C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5533C82E1A3A5F3800ADF4C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5533C8301A3A5F3800ADF4C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MapRotationTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5533C8311A3A5F3800ADF4C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MapRotationTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5533C8331A3A5F3800ADF4C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MapRotationTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MapRotationTest.app/Contents/MacOS/MapRotationTest";
+			};
+			name = Debug;
+		};
+		5533C8341A3A5F3800ADF4C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MapRotationTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MapRotationTest.app/Contents/MacOS/MapRotationTest";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5533C80D1A3A5F3700ADF4C3 /* Build configuration list for PBXProject "MapRotationTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5533C82D1A3A5F3800ADF4C3 /* Debug */,
+				5533C82E1A3A5F3800ADF4C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5533C82F1A3A5F3800ADF4C3 /* Build configuration list for PBXNativeTarget "MapRotationTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5533C8301A3A5F3800ADF4C3 /* Debug */,
+				5533C8311A3A5F3800ADF4C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5533C8321A3A5F3800ADF4C3 /* Build configuration list for PBXNativeTarget "MapRotationTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5533C8331A3A5F3800ADF4C3 /* Debug */,
+				5533C8341A3A5F3800ADF4C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5533C80A1A3A5F3700ADF4C3 /* Project object */;
+}
