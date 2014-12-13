@@ -41,6 +41,42 @@
 }
 
 
+-(BOOL)	getIntersection: (NSPoint*)outIntersection ofLineStart: (NSPoint)startA end: (NSPoint)endA withLineStart: (NSPoint)startB end: (NSPoint)endB
+{
+	NSPoint	intersectionPoint;
+	CGFloat	d = (startA.x -endA.x) * (startB.y -endB.y) - (startA.y -endA.y) * (startB.x -endB.x);
+	if( d == 0 )
+		return NO;
+	
+	intersectionPoint.x = ((startB.x -endB.x) * (startA.x * endA.y -startA.y * endA.x) - (startA.x -endA.x) * (startB.x * endB.y - startB.y * endB.x)) / d;
+	intersectionPoint.y = ((startB.y - endB.y) * (startA.x * endA.y - startA.y * endA.x) - (startA.y -endA.y) * (startB.x * endB.y -startB.y * endB.x)) / d;
+	
+	if( [self point: intersectionPoint isBetweenStartPoint: startA andEndPoint: endA] && [self point: intersectionPoint isBetweenStartPoint: startB andEndPoint: endB] )
+	{
+		*outIntersection = intersectionPoint;
+		return YES;
+	}
+	else
+		return NO;
+}
+
+
+-(CGFloat)	distanceBetweenPoint: (NSPoint)startPoint andPoint: (NSPoint)endPoint
+{
+	return sqrt( pow((startPoint.x - endPoint.x), 2) +pow((startPoint.y - endPoint.y),2) );
+}
+
+
+-(BOOL)	point: (NSPoint)midPoint isBetweenStartPoint: (NSPoint)startPoint andEndPoint: (NSPoint)endPoint
+{
+	CGFloat	totalDistance = [self distanceBetweenPoint: startPoint andPoint: endPoint];
+	CGFloat	leftDistance = [self distanceBetweenPoint: startPoint andPoint: midPoint];
+	CGFloat	rightDistance = [self distanceBetweenPoint: midPoint andPoint: endPoint];
+	
+	return( fabs(totalDistance -(leftDistance +rightDistance)) < 0.001 );
+}
+
+
 - (void)drawRect:(NSRect)dirtyRect
 {
     NSPoint		topLeft = {100, 100}, topRight = { 300, 100 }, bottomRight = { 300, 200 }, bottomLeft = { 100, 200 };
@@ -63,6 +99,21 @@
 	bottomLeft.x -= currPos.x -viewCenter.x;
 	bottomLeft.y -= currPos.y -viewCenter.y;
 	
+	#define LOOK_DISTANCE		100
+	NSPoint	indicatorPos = viewCenter;
+	NSPoint	lookEndPos = [self translatePoint: indicatorPos byAngle: M_PI distance: LOOK_DISTANCE];
+	NSPoint	intersectionPoint = { -10000, -10000 };
+	if( !mapModeDisplay )
+	{
+		if( [self getIntersection: &intersectionPoint ofLineStart: topLeft end: topRight withLineStart: indicatorPos end: lookEndPos] )
+		{
+				[NSColor.cyanColor set];
+				[NSBezierPath setDefaultLineWidth: 4];
+				[NSBezierPath strokeLineFromPoint: topLeft toPoint: topRight];
+				[NSBezierPath setDefaultLineWidth: 1];
+		}
+	}
+	
 	// Draw!
 	[NSColor.grayColor set];
 	NSBezierPath	*	thePath = [NSBezierPath bezierPath];
@@ -73,8 +124,16 @@
 	[thePath lineToPoint: topLeft];
 	[thePath fill];
 	
+	if( !mapModeDisplay )
+	{
+		[NSColor.blueColor set];
+		[NSBezierPath strokeLineFromPoint: indicatorPos toPoint: [self translatePoint: indicatorPos byAngle: M_PI distance: LOOK_DISTANCE]];
+		
+		[NSColor.magentaColor set];
+		[[NSBezierPath bezierPathWithOvalInRect: NSMakeRect( intersectionPoint.x -4, intersectionPoint.y-4, 8, 8)] fill];
+	}
+	
 	[NSColor.redColor set];
-	NSPoint	indicatorPos = viewCenter;
 	NSPoint triA;
 	NSPoint triB;
 	NSPoint triC;
